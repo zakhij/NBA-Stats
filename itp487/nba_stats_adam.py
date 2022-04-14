@@ -1,3 +1,14 @@
+#Originally done in Google Colab.
+
+#Background:This project focuses on NBA player cost-efficiency for the 2021-22 NBA season, contextualizing player impact with the consideration of salary.
+
+#Central Question: What does the relationship between player impact and salary look like? Who are the most cost-efficient players this season? 
+#I'll be answering this question with 3 different metrics for player impact:
+#Points Scored
+#RAPTOR (538's advanced all-in-one metric)
+#LEBRON (Bball-index's advanced all-in-one metric)
+
+
 # importing modules and packages 
 
 import pandas as pd 
