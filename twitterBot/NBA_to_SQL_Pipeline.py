@@ -7,7 +7,7 @@ from nba_api.stats import endpoints as ep
 class NBAStatsToSQL:
     def __init__(self):
         self.user = "zhijaouy"
-        self.pw = " " #Not showing 
+        self.pw = " " #Removed for privacy purposes
         self.host ="nbastatsaws1.cx08ymmfb8n8.us-east-1.rds.amazonaws.com" #mySQL Server Address
         self.dbSchema = "nbastats"
         self.masterTables = ["leaguedashplayerstats"] #Tables by which important identifiers such as PLAYER_ID originate from
