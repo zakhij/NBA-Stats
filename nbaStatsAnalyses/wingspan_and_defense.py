@@ -1,7 +1,8 @@
 #Originally coded in PyCharm. This code seeks to find a relationship between wingspan (specifically wingspan-to-height ratio) and defensive impact of NBA players.
 #To quantify defensive impact, PCT_PLUSMINUS, which gives the difference between a player's defensive FG% and the expected defensive FG% on the shots contested,
-#was primarily used and charted. Correlations between wingspan ratio and deflections/min & contests/min were also looked at, although I could find a strong 
-#correlation for any defensive metric with wingspan.
+#was primarily used and charted. The wingspan data was sourced from https://craftednba.com/player-traits/length, while the defensive stats were obtained by
+#connecting to NBA API endpoints. Correlations between wingspan ratio and deflections/min & contests/min were also looked at, although I could not find a 
+#strong correlation for any defensive metric with wingspan.
 
 import pandas as pd
 import numpy as np
