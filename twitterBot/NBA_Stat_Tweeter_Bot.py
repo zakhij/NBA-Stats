@@ -4,9 +4,6 @@ import tweepy
 from nba_api.stats.static import players
 from nba_api.stats.endpoints import playergamelog
 
-#This
-
-
 user = "zhijaouy"
 pw = "" #Removed for privacy purposes
 host = "nbastatsaws1.cx08ymmfb8n8.us-east-1.rds.amazonaws.com"
