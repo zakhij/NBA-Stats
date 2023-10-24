@@ -1,3 +1,4 @@
+#DOONE
 #Originally written in PyCharm. Accesses player stats data stored in AWS RDS via mySQL connection (see NBA_to_SQL_Pipeline.py). Then scans Twitter mention tweets for names of current NBA players, replying to those tweets with the respective values for the number of minutes played this season for the players that were identified. 
 #This code has been uploaded on a crontab on an AWS EC2 instance, being executed every 10 minutes. 
 
