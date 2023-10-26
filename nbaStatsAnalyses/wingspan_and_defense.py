@@ -5,13 +5,15 @@
 #strong correlation for any defensive metric with wingspan.
 
 import pandas as pd
-import numpy as np
 pd.set_option('display.max_columns', None)
+import numpy as np
 from nba_api.stats import endpoints as ep
+from sklearn.linear_model import LinearRegression
+from matplotlib import pyplot as plt
 
 playerDF = ep.leaguedashplayerbiostats.LeagueDashPlayerBioStats().get_data_frames()[0]
-wingspanInfo = pd.read_csv('wingspan.csv')[['Wingspan2', 'PlayerID']]
-wingspanInfo = wingspanInfo.rename(columns={'Wingspan2':'WINGSPAN_INCHES'})
+wingspanInfo = pd.read_csv('wingspan.csv')[['Wingspan', 'PlayerID']]
+wingspanInfo = wingspanInfo.rename(columns={'Wingspan':'WINGSPAN_INCHES'})
 dFGInfo = ep.leaguedashptdefend.LeagueDashPtDefend().get_data_frames()[0][['CLOSE_DEF_PERSON_ID', 'D_FGA', 'D_FG_PCT', 'PCT_PLUSMINUS']]
 hustleInfo = ep.leaguehustlestatsplayer.LeagueHustleStatsPlayer().get_data_frames()[0].drop \
     (columns=['PLAYER_NAME','TEAM_ID','TEAM_ABBREVIATION','AGE','G'])
@@ -30,7 +32,7 @@ minFilter = playerDF['MIN'] > 500
 nanFilter = pd.notna(playerDF['WINGSPAN_INCHES'])
 
 
-from sklearn.linear_model import LinearRegression
+
 
 linreg = LinearRegression()
 
@@ -40,7 +42,7 @@ linreg.fit(x,y)
 y_pred = linreg.predict(x)
 print(linreg.coef_)
 print(linreg.intercept_)
-from matplotlib import pyplot as plt
+
 plt.plot(x, y_pred)
 #plt.plot(playerDF.loc[minFilter,:]['WINGSPAN_HEIGHT_RATIO'].values,playerDF.loc[minFilter,:]['DEFLECTIONS_PER_MIN'].values,'o')
 plt.plot(playerDF.loc[minFilter & nanFilter,:]['WINGSPAN_HEIGHT_RATIO'].values,playerDF.loc[minFilter & nanFilter,:]['PCT_PLUSMINUS'].values,'o')
